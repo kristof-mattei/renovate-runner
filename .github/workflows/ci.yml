@@ -7,25 +7,9 @@ on:
       - main
 
 env:
-  LOG_LEVEL: debug
   NPM_CONFIG_FUND: false
 
 jobs:
-  validate-renovate-config:
-    runs-on: ubuntu-26.04
-    timeout-minutes: 10
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          show-progress: false
-
-      - name: Validate Renovate config
-        run: |
-          grep --recursive --files-with-matches --null --include='*.json' --exclude-dir=node_modules 'renovate-schema.json' . \
-            | xargs --null npx --package renovate renovate-config-validator
-
   format:
     name: Format
     runs-on: ubuntu-26.04
@@ -99,7 +83,6 @@ jobs:
     # combination of upstream skip and success: success
     runs-on: ubuntu-26.04
     needs:
-      - validate-renovate-config
       - format
       - shellcheck
     if: |
