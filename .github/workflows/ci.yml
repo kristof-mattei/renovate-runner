@@ -38,7 +38,7 @@ jobs:
           pnpm install --frozen-lockfile
 
       - name: Install shfmt
-        uses: taiki-e/install-action@3a3daafd3b7f23b8f65d9f5ba2db203fb59b79e2 # v2.90.2
+        uses: taiki-e/install-action@cfdb7ed4ccc7c7dce37759eae89dc5674b469b39 # v2.90.3
         with:
           tool: shfmt
 
@@ -65,7 +65,7 @@ jobs:
           show-progress: false
 
       - name: Install shellcheck
-        uses: taiki-e/install-action@3a3daafd3b7f23b8f65d9f5ba2db203fb59b79e2 # v2.90.2
+        uses: taiki-e/install-action@cfdb7ed4ccc7c7dce37759eae89dc5674b469b39 # v2.90.3
         with:
           tool: shellcheck
 
